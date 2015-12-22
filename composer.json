@@ -1,5 +1,5 @@
 {
-    "name": "feyyazesat/multiplekernel",
+    "name": "feyyazesat/.",
     "license": "proprietary",
     "type": "project",
     "autoload": {
@@ -7,7 +7,8 @@
             "": "src/"
         },
         "files": [
-            "app/AppKernel.php"
+            "apps/api/ApiKernel.php",
+            "apps/frontend/FrontendKernel.php"
         ]
     },
     "autoload-dev": {
@@ -50,14 +51,14 @@
         ]
     },
     "extra": {
-        "symfony-app-dir": "app",
+        "symfony-app-dir": "apps/api",
         "symfony-bin-dir": "bin",
         "symfony-var-dir": "var",
-        "symfony-web-dir": "web",
+        "symfony-web-dir": "webs/api",
         "symfony-tests-dir": "tests",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
+            "file": "apps/config/common_parameters.yml"
         }
     }
 }
