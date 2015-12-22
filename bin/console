@@ -3,6 +3,8 @@
 
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Input\ArgvInput;
+use Symfony\Component\Console\Input\InputDefinition;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Debug\Debug;
 
 // if you don't want to setup permissions the proper way, just uncomment the following PHP line
@@ -18,12 +20,27 @@ $loader = require __DIR__.'/../apps/autoload.php';
 
 $input = new ArgvInput();
 $env = $input->getParameterOption(array('--env', '-e'), getenv('SYMFONY_ENV') ?: 'dev');
+$app = $input->getParameterOption(array('--app', '-a'));
 $debug = getenv('SYMFONY_DEBUG') !== '0' && !$input->hasParameterOption(array('--no-debug', '')) && $env !== 'prod';
 
 if ($debug) {
     Debug::enable();
 }
 
-$kernel = new AppKernel($env, $debug);
+switch ($app) {
+    case 'api':
+        $kernel = new ApiKernel($env, $debug);
+        break;
+    case 'frontend':
+        $kernel = new FrontendKernel($env, $debug);
+        break;
+    default:
+        throw new \InvalidArgumentException("[--app|-a=<app>]  app: api|frontend");
+        break;
+}
+
 $application = new Application($kernel);
+$application->getDefinition()->addOptions([
+    new InputOption('--app', '-a', InputOption::VALUE_REQUIRED, 'The application to operate in.'),
+]);
 $application->run($input);

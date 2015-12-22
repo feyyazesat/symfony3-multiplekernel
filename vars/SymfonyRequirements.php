@@ -409,20 +409,37 @@ class SymfonyRequirements extends RequirementCollection
                 'Then run "<strong>php composer.phar install</strong>" to install them.'
         );
 
-        $cacheDir = is_dir(__DIR__.'/../var/cache') ? __DIR__.'/../var/cache' : __DIR__.'/cache';
+        $cacheDir = is_dir(__DIR__.'/../vars/api/cache') ? __DIR__.'/../vars/api/cache' : __DIR__.'/api/cache';
 
         $this->addRequirement(
             is_writable($cacheDir),
-            'app/cache/ or var/cache/ directory must be writable',
-            'Change the permissions of either "<strong>app/cache/</strong>" or  "<strong>var/cache/</strong>" directory so that the web server can write into it.'
+            'apps/api/cache/ or var/api/cache/ directory must be writable',
+            'Change the permissions of either "<strong>apps/api/cache/</strong>" or  "<strong>vars/api/cache/</strong>" directory so that the web server can write into it.'
         );
 
-        $logsDir = is_dir(__DIR__.'/../var/logs') ? __DIR__.'/../var/logs' : __DIR__.'/logs';
+        $cacheDir = is_dir(__DIR__.'/../vars/frontend/cache') ? __DIR__.'/../vars/frontend/cache' : __DIR__.'/frontend/cache';
+
+        $this->addRequirement(
+            is_writable($cacheDir),
+            'apps/frontend/cache/ or var/frontend/cache/ directory must be writable',
+            'Change the permissions of either "<strong>apps/frontend/cache/</strong>" or  "<strong>vars/frontend/cache/</strong>" directory so that the web server can write into it.'
+        );
+
+
+        $logsDir = is_dir(__DIR__.'/../vars/api/logs') ? __DIR__.'/../vars/api/logs' : __DIR__.'/api/logs';
 
         $this->addRequirement(
             is_writable($logsDir),
-            'app/logs/ or var/logs/ directory must be writable',
-            'Change the permissions of either "<strong>app/logs/</strong>" or  "<strong>var/logs/</strong>" directory so that the web server can write into it.'
+            'apps/api/logs/ or vars/api/logs/ directory must be writable',
+            'Change the permissions of either "<strong>apps/api/logs/</strong>" or  "<strong>vars/api/logs/</strong>" directory so that the web server can write into it.'
+        );
+
+        $logsDir = is_dir(__DIR__.'/../vars/frontend/logs') ? __DIR__.'/../vars/frontend/logs' : __DIR__.'/frontend/logs';
+
+        $this->addRequirement(
+            is_writable($logsDir),
+            'apps/frontend/logs/ or vars/frontend/logs/ directory must be writable',
+            'Change the permissions of either "<strong>apps/frontend/logs/</strong>" or  "<strong>vars/frontend/logs/</strong>" directory so that the web server can write into it.'
         );
 
         $this->addPhpIniRequirement(
