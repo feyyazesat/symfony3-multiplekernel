@@ -5,11 +5,13 @@ framework:
     router:
         resource: "%kernel.root_dir%/config/routing_dev.yml"
         strict_requirements: true
+#  API Purpose
     profiler: { only_exceptions: false }
 
-web_profiler:
-    toolbar: true
-    intercept_redirects: false
+#  API Purpose
+# web_profiler:
+#    toolbar: true
+#    intercept_redirects: false
 
 monolog:
     handlers:

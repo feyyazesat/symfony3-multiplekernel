@@ -8,9 +8,10 @@ framework:
     profiler:
         collect: false
 
-web_profiler:
-    toolbar: false
-    intercept_redirects: false
+# API Purpose
+#web_profiler:
+#    toolbar: false
+#    intercept_redirects: false
 
 swiftmailer:
     disable_delivery: true

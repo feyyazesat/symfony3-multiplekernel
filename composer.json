@@ -51,10 +51,10 @@
         ]
     },
     "extra": {
-        "symfony-app-dir": "apps/api",
+        "symfony-app-dir": "apps",
         "symfony-bin-dir": "bin",
         "symfony-var-dir": "var",
-        "symfony-web-dir": "webs/api",
+        "symfony-web-dir": "webs/frontend",
         "symfony-tests-dir": "tests",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
