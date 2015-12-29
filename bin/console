@@ -3,7 +3,6 @@
 
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Input\ArgvInput;
-use Symfony\Component\Console\Input\InputDefinition;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Debug\Debug;
 
@@ -20,7 +19,7 @@ $loader = require __DIR__.'/../apps/autoload.php';
 
 $input = new ArgvInput();
 $env = $input->getParameterOption(array('--env', '-e'), getenv('SYMFONY_ENV') ?: 'dev');
-$app = $input->getParameterOption(array('--app', '-a'));
+$app = $input->getParameterOption(array('--app', '-a'), getenv('SYMFONY_APP'));
 $debug = getenv('SYMFONY_DEBUG') !== '0' && !$input->hasParameterOption(array('--no-debug', '')) && $env !== 'prod';
 
 if ($debug) {

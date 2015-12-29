@@ -39,7 +39,7 @@ class ApiKernel extends Kernel
 
     public function getLogDir()
     {
-        return dirname(dirname(__DIR__)).'/../../vars/api/logs';
+        return dirname(dirname(__DIR__)).'/vars/api/logs';
     }
 
     public function registerContainerConfiguration(LoaderInterface $loader)

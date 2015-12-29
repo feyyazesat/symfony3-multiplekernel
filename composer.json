@@ -1,5 +1,5 @@
 {
-    "name": "feyyazesat/.",
+    "name": "feyyazesat/multiplekernel",
     "license": "proprietary",
     "type": "project",
     "autoload": {
@@ -53,7 +53,7 @@
     "extra": {
         "symfony-app-dir": "apps",
         "symfony-bin-dir": "bin",
-        "symfony-var-dir": "var",
+        "symfony-var-dir": "vars",
         "symfony-web-dir": "webs/frontend",
         "symfony-tests-dir": "tests",
         "symfony-assets-install": "relative",
