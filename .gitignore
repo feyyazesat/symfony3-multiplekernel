@@ -1,6 +1,6 @@
 /apps/config/common_parameters.yml
-/apps/api/parameters.yml
-/apps/frontend/parameters.yml
+/apps/api/config/parameters.yml
+/apps/frontend/config/parameters.yml
 /build/
 /phpunit.xml
 /vars/*
