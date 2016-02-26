@@ -408,14 +408,20 @@ class SymfonyRequirements extends RequirementCollection
             'Vendor libraries are missing. Install composer following instructions from <a href="http://getcomposer.org/">http://getcomposer.org/</a>. '.
                 'Then run "<strong>php composer.phar install</strong>" to install them.'
         );
-
         $cacheDir = is_dir(__DIR__.'/../vars/api/cache') ? __DIR__.'/../vars/api/cache' : __DIR__.'/api/cache';
-
+        // $cacheDir = is_dir(__DIR__.'/../var/cache') ? __DIR__.'/../var/cache' : __DIR__.'/cache';
         $this->addRequirement(
             is_writable($cacheDir),
             'apps/api/cache/ or var/api/cache/ directory must be writable',
             'Change the permissions of either "<strong>apps/api/cache/</strong>" or  "<strong>vars/api/cache/</strong>" directory so that the web server can write into it.'
         );
+        /*
+        $this->addRequirement(
+            is_writable($cacheDir),
+            'app/cache/ or var/cache/ directory must be writable',
+            'Change the permissions of either "<strong>app/cache/</strong>" or  "<strong>var/cache/</strong>" directory so that the web server can write into it.'
+        );
+        */
 
         $cacheDir = is_dir(__DIR__.'/../vars/frontend/cache') ? __DIR__.'/../vars/frontend/cache' : __DIR__.'/frontend/cache';
 
@@ -435,13 +441,20 @@ class SymfonyRequirements extends RequirementCollection
         );
 
         $logsDir = is_dir(__DIR__.'/../vars/frontend/logs') ? __DIR__.'/../vars/frontend/logs' : __DIR__.'/frontend/logs';
+        // $logsDir = is_dir(__DIR__.'/../var/logs') ? __DIR__.'/../var/logs' : __DIR__.'/logs';
 
         $this->addRequirement(
             is_writable($logsDir),
             'apps/frontend/logs/ or vars/frontend/logs/ directory must be writable',
             'Change the permissions of either "<strong>apps/frontend/logs/</strong>" or  "<strong>vars/frontend/logs/</strong>" directory so that the web server can write into it.'
         );
-
+        /*
+        $this->addRequirement(
+            is_writable($logsDir),
+            'app/logs/ or var/logs/ directory must be writable',
+            'Change the permissions of either "<strong>app/logs/</strong>" or  "<strong>var/logs/</strong>" directory so that the web server can write into it.'
+        );
+        */
         $this->addPhpIniRequirement(
             'date.timezone', true, false,
             'date.timezone setting must be set',
